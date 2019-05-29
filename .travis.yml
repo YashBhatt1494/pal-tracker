@@ -10,8 +10,8 @@ if: tag IS blank
 jobs:
   include:
     - stage: build and publish
-      language: java8
-      jdk: openjdk11
+      language: java
+      jdk: openjdk8
       install: skip
       script: ./gradlew clean build
       before_deploy:
