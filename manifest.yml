@@ -3,6 +3,6 @@ applications:
   - name: pal-tracker
     path: build/libs/pal-tracker.jar
     routes:
-    - route: pal-tracker-pipeline-quick-quoll.apps.pcf.paltraining.perficient.com
+    - route: pal-tracker-tired-ratel.apps.pcf.paltraining.perficient.com/pal-tracker-yash
     env:
       WELCOME_MESSAGE: Hello from the review environment
