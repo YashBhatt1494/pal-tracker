@@ -13,28 +13,29 @@ buildscript {
         classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
     }
 }
+
+
 plugins {
     id "java"
     id "org.flywaydb.flyway" version "5.0.5"
 }
+
 apply plugin: 'org.springframework.boot'
 
 repositories {
     mavenCentral()
 }
 
-
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
     compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.7")
     compile("org.springframework.boot:spring-boot-starter-jdbc:$springBootVersion")
+
     compile("mysql:mysql-connector-java:6.0.6")
-    
+
     testCompile("org.springframework.boot:spring-boot-starter-test:$springBootVersion")
     testCompile("org.mockito:mockito-core:2.23.4")
-   
 }
-
 
 def developmentDbUrl = "jdbc:mysql://localhost:3306/tracker_dev?user=tracker&useSSL=false&useTimezone=true&serverTimezone=UTC&useLegacyDatetimeCode=false"
 bootRun.environment([
@@ -48,7 +49,6 @@ test.environment([
         "SPRING_DATASOURCE_URL": testDbUrl,
 ])
 
-
 flyway {
     url = developmentDbUrl
     user = "tracker"
@@ -59,4 +59,3 @@ flyway {
 task testMigrate(type: FlywayMigrateTask) {
     url = testDbUrl
 }
-
